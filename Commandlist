@@ -1,0 +1,106 @@
+Command list
+
+List all attached devices
+adb devices
+
+Pull the base.apk file
+adb shell sh -c 'cmd package list packages -3'
+adb shell pm path [PACKAGE.NAME]
+adb pull /data/app/[FOLDER.NAME]/base.apk
+
+Pull the OBB folder
+adb shell ls sdcard/android/obb
+adb pull sdcard/android/obb/[FOLDER.NAME]
+
+Uninstall an application
+adb shell sh -c 'cmd package list packages -3'
+adb uninstall [PACKAGE.NAME]
+
+Take a screenshot
+adb exec-out screencap -p > image.jpg
+
+Record a video
+adb shell screenrecord /sdcard/video.mp4
+
+Pull a video
+adb pull /sdcard/video.mp4
+
+Pull the Android Manifest
+aapt dump xmltree base.apk AndroidManifest.xml > AndroidManifest.txt
+
+List the contents of the base.apk file
+aapt list base.apk
+
+Pull a log
+adb logcat -d > log.txt
+
+Install a base.apk
+adb install base.apk
+
+Push an OBB folder
+adb push [OBB FOLDER NAME] sdcard/android/obb
+
+Install the OVR Metrics Tool
+adb install OVRMetricsTool_v1.6.5.apk
+
+Pull performance logs
+adb pull sdcard/Android/data/com.oculus.ovrmonitormetricsservice/files/CapturedMetrics
+
+To open OVR
+adb shell am start omms://app
+
+Enable OVR overlay
+adb shell am broadcast -n com.oculus.ovrmonitormetricsservice/.SettingsBroadcastReceiver -a com.oculus.ovrmonitormetricsservice.ENABLE_OVERLAY
+
+Enable OVR Render Scale graph
+adb shell am broadcast -n com.oculus.ovrmonitormetricsservice/.SettingsBroadcastReceiver -a com.oculus.ovrmonitormetricsservice.ENABLE_GRAPH --es stat render_scale
+
+Record OVR metrics to CSV file
+adb shell am broadcast -n com.oculus.ovrmonitormetricsservice/.SettingsBroadcastReceiver -a com.oculus.ovrmonitormetricsservice.ENABLE_CSV
+
+Disable OVR overlay
+adb shell am broadcast -n com.oculus.ovrmonitormetricsservice/.SettingsBroadcastReceiver -a com.oculus.ovrmonitormetricsservice.DISABLE_OVERLAY
+
+Set the JAVA_HOME variable
+setx /m JAVA_HOME "C:\Program Files\Java\jdk-23"
+
+Change directories to ‘platform tools’
+cd C:\Users\[USERNAME]\Desktop\platform-tools
+
+Verify the ‘APK Signature Scheme’
+apksigner verify --verbose base.apk
+
+Enable ‘Asynchronous Spacewarp’ graph
+adb shell am broadcast -n com.oculus.ovrmonitormetricsservice/.SettingsBroadcastReceiver -a com.oculus.ovrmonitormetricsservice.ENABLE_GRAPH --es stat spacewarped_frames_per_second
+
+Find base.apk file size (in kilobytes)
+adb shell sh -c 'cmd package list packages -3'
+adb shell pm path [PACKAGE.NAME]
+adb shell ls -s /data/app/[FOLDER.NAME]/base.apk
+
+Find OBB file sizes (in kilobytes)
+adb shell ls sdcard/android/obb
+adb shell ls -s sdcard/android/obb/[FOLDER.NAME]
+
+Find the ‘Oculus VR Shell’ versionCode
+adb shell dumpsys package com.oculus.vrshell | findstr versionCode
+
+Find app versionCode
+adb shell sh -c 'cmd package list packages -3'
+adb shell dumpsys package [PACKAGE.NAME] | findstr versionCode
+
+Get headset serial number
+adb shell getprop ro.serialno
+
+List Oculus and system packages
+adb shell sh -c 'cmd package list packages -s'
+
+List all third-party packages
+adb shell sh -c 'cmd package list packages -3'
+
+Find the location of a base.apk file
+adb shell sh -c 'cmd package list packages -3'
+adb shell pm path [PACKAGE.NAME]
+
+List the contents of the OBB folder
+adb shell ls sdcard/android/obb
