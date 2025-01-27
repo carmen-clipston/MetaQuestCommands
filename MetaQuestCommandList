@@ -17,13 +17,13 @@ adb shell sh -c 'cmd package list packages -3'
 adb uninstall [PACKAGE.NAME]
 
 Take a screenshot
-adb exec-out screencap -p > image.jpg
+adb exec-out screencap -p > [IMAGE NAME].jpg
 
 Record a video
-adb shell screenrecord /sdcard/video.mp4
+adb shell screenrecord /sdcard/[VIDEO NAME].mp4
 
 Pull a video
-adb pull /sdcard/video.mp4
+adb pull /sdcard/[VIDEO NAME].mp4
 
 Pull the Android Manifest
 aapt dump xmltree base.apk AndroidManifest.xml > AndroidManifest.txt
@@ -92,7 +92,7 @@ adb shell dumpsys package [PACKAGE.NAME] | findstr versionCode
 Get headset serial number
 adb shell getprop ro.serialno
 
-List Oculus and system packages
+List Oculus / Meta and system packages
 adb shell sh -c 'cmd package list packages -s'
 
 List all third-party packages
