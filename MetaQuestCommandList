@@ -104,3 +104,6 @@ adb shell pm path [PACKAGE.NAME]
 
 List the contents of the OBB folder
 adb shell ls sdcard/android/obb
+
+To restart headset
+adb reboot
